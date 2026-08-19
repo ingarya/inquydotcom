@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inquy</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Work+Sans:wght@300;400;500;600&display=swap"
+          rel="stylesheet">
+    <style>
+        :root {
+          --ink: #16221f;
+          --teal-deep: #1b3a3f;
+          --teal: #3c6e71;
+          --paper: #fefefe;
+          --line: #e4e2dc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+          font-family: 'Work Sans', sans-serif;
+          color: var(--ink);
+          background: var(--paper);
+          -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, .serif {
+          font-family: 'Playfair Display', serif;
+        }
+
+        /* --- Nav --- */
+        nav {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 28px 6vw;
+          max-width: 1400px;
+          margin: 0 auto;
+        }
+
+        .logo {
+          font-family: 'Playfair Display', serif;
+          font-size: 1.25rem;
+          letter-spacing: 0.02em;
+        }
+
+        .nav-links {
+          display: flex;
+          gap: 40px;
+          list-style: none;
+        }
+
+        .nav-links a {
+          color: var(--ink);
+          text-decoration: none;
+          font-size: 0.85rem;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          opacity: 0.75;
+          transition: opacity 0.2s ease;
+        }
+
+        .nav-links a:hover { opacity: 1; }
+
+        /* --- Hero text block --- */
+        .hero-text {
+          text-align: center;
+          padding: 6vh 6vw 7vh;
+          max-width: 720px;
+          margin: 0 auto;
+        }
+
+        .hero-text h1 {
+          font-size: clamp(2.2rem, 5vw, 3.4rem);
+          font-weight: 500;
+          line-height: 1.15;
+          margin-bottom: 2rem;
+        }
+
+        .pill-btn {
+          display: inline-block;
+          padding: 16px 40px;
+          border: 1.5px solid var(--ink);
+          border-radius: 999px;
+          text-decoration: none;
+          color: var(--ink);
+          font-size: 0.8rem;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          transition: background 0.25s ease, color 0.25s ease;
+        }
+
+        .pill-btn:hover {
+          background: var(--ink);
+          color: var(--paper);
+        }
+
+        /* --- Hero image --- */
+        .hero-image {
+          width: 100%;
+          min-height: 62vh;
+          overflow: hidden;
+        }
+
+        .hero-image img {
+          width: 100%;
+          height: 100%;
+          min-height: 62vh;
+          object-fit: cover;
+          display: block;
+        }
+
+        /* --- About / intro section --- */
+        .section {
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 10vh 6vw;
+        }
+
+        .section-narrow {
+          max-width: 640px;
+          margin: 0 auto;
+          text-align: center;
+          padding: 10vh 6vw;
+        }
+
+        .section-narrow h2 {
+          font-size: 1.9rem;
+          font-weight: 500;
+          margin-bottom: 1.5rem;
+        }
+
+        .section-narrow p {
+          font-size: 1.05rem;
+          line-height: 1.75;
+          opacity: 0.8;
+        }
+
+        /* --- Work grid --- */
+        .work-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 32px;
+          padding: 0 6vw 12vh;
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+
+        .work-item {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .work-thumb {
+          width: 100%;
+          aspect-ratio: 4 / 3;
+          border-radius: 4px;
+          background: linear-gradient(135deg, var(--teal) 0%, var(--teal-deep) 100%);
+        }
+
+        .work-item h3 {
+          font-family: 'Playfair Display', serif;
+          font-weight: 500;
+          font-size: 1.15rem;
+        }
+
+        .work-item span {
+          font-size: 0.85rem;
+          opacity: 0.6;
+          letter-spacing: 0.04em;
+        }
+
+        /* --- Contact --- */
+        footer {
+          border-top: 1px solid var(--line);
+          text-align: center;
+          padding: 8vh 6vw;
+        }
+
+        footer h2 {
+          font-size: 1.8rem;
+          font-weight: 500;
+          margin-bottom: 1.25rem;
+        }
+
+        footer a.email {
+          color: var(--ink);
+          font-size: 1.05rem;
+          text-decoration: none;
+          border-bottom: 1px solid var(--ink);
+          padding-bottom: 2px;
+        }
+
+        footer .fine-print {
+          margin-top: 3rem;
+          font-size: 0.75rem;
+          opacity: 0.5;
+          letter-spacing: 0.04em;
+        }
+
+        .socials {
+          display: flex;
+          justify-content: center;
+          gap: 18px;
+          margin-top: 2.5rem;
+        }
+
+        .socials a {
+          width: 42px;
+          height: 42px;
+          border: 1.5px solid var(--ink);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--ink);
+          transition: background 0.25s ease, color 0.25s ease;
+        }
+
+        .socials a:hover {
+          background: var(--ink);
+          color: var(--paper);
+        }
+
+        .socials svg {
+          width: 17px;
+          height: 17px;
+          fill: currentColor;
+        }
+
+        @media (max-width: 640px) {
+          .nav-links { gap: 22px; }
+          .nav-links a { font-size: 0.75rem; }
+        }
+
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">inquy</div>
+    <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<header class="hero-text">
+    <h1>In Progress - come back soon!</h1>
+    <!--    <a href="#work" class="pill-btn">View Work</a>-->
+</header>
+
+<div class="hero-image"><img src="250322-_MG_9399-Edit.jpg" alt="A person floating underwater"></div>
+
+<!--  <section id="about" class="section-narrow">-->
+<!--    <h2>Test</h2>-->
+<!--    <p>-->
+<!--      Test-->
+<!--    </p>-->
+<!--  </section>-->
+
+<!--  <section id="work" class="work-grid">-->
+<!--    <div class="work-item">-->
+<!--      <div class="work-thumb"></div>-->
+<!--      <h3>Project One</h3>-->
+<!--      <span>Category, Year</span>-->
+<!--    </div>-->
+<!--    <div class="work-item">-->
+<!--      <div class="work-thumb"></div>-->
+<!--      <h3>Project Two</h3>-->
+<!--      <span>Category, Year</span>-->
+<!--    </div>-->
+<!--    <div class="work-item">-->
+<!--      <div class="work-thumb"></div>-->
+<!--      <h3>Project Three</h3>-->
+<!--      <span>Category, Year</span>-->
+<!--    </div>-->
+<!--  </section>-->
+
+<footer id="contact">
+    <h2>Contact Me</h2>
+    <a class="email" href="mailto:inga@inquy.com">inga@inquy.com</a>
+    <div class="socials">
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24">
+                <path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H16.7V3.7C16.4 3.66 15.4 3.58 14.24 3.58c-2.42 0-4.08 1.48-4.08 4.19V9.9H7.4V13h2.76v8h3.34z"/>
+            </svg>
+        </a>
+        <a href="https://www.instagram.com/inquy/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 8.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm5.4-2.15a1.17 1.17 0 1 1 0 2.34 1.17 1.17 0 0 1 0-2.34zM12 3.6c-2.34 0-2.63.01-3.55.05-.92.04-1.55.19-2.1.4-.57.22-1.05.52-1.53 1s-.78.96-1 1.53c-.21.55-.36 1.18-.4 2.1C3.38 9.6 3.37 9.89 3.37 12s.01 2.4.05 3.32c.04.92.19 1.55.4 2.1.22.57.52 1.05 1 1.53s.96.78 1.53 1c.55.21 1.18.36 2.1.4.92.04 1.21.05 3.55.05s2.63-.01 3.55-.05c.92-.04 1.55-.19 2.1-.4.57-.22 1.05-.52 1.53-1s.78-.96 1-1.53c.21-.55.36-1.18.4-2.1.04-.92.05-1.21.05-3.32s-.01-2.4-.05-3.32c-.04-.92-.19-1.55-.4-2.1-.22-.57-.52-1.05-1-1.53s-.96-.78-1.53-1c-.55-.21-1.18-.36-2.1-.4C14.63 3.61 14.34 3.6 12 3.6z"/>
+            </svg>
+        </a>
+        <a href="https://www.gofundme.com/f/help-the-harlem-mermaid" target="_blank" rel="noopener"
+           aria-label="GoFundMe">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 20.6s-7.2-4.5-9.8-8.9C.6 8.6 1.6 4.9 4.9 3.4c2.6-1.2 5.5-.4 7.1 1.9 1.6-2.3 4.5-3.1 7.1-1.9 3.3 1.5 4.3 5.2 2.7 8.3-2.6 4.4-9.8 8.9-9.8 8.9z"/>
+            </svg>
+        </a>
+    </div>
+    <div class="fine-print">&copy; 2026 inquy. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
